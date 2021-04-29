@@ -110,7 +110,7 @@ public class ServicePostgreRepository implements ServiceRepository {
         ResultRequest<Json> query = this.connection.writeQuery("INSERT INTO services VALUES('" + service.getCode() + "','" + service.getName()
                 + "','" + service.getType() + "','" + service.getMaker() + "','" + service.getDescription()
                 + "','" + service.getPrice() + "','" + service.getPeriodicity()
-                + "','" + service.getConditions() + "','" + this.date_BDFromDTO(service.getStartDate()) + "'," + this.date_BDFromDTO(service.getFinishDate()) + ");");
+                + "','" + service.getConditions() + "','" + this.date_BDFromDTO(service.getStartDate()) + "','" + this.date_BDFromDTO(service.getFinishDate()) + "');");
         if (query.failed()) {
             return ResultRequest.fails("Error al insertar en base de datos el service con id " + service.getCode() + ". Error: " + query.getError());
         } else {
